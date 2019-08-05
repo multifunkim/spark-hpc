@@ -128,7 +128,7 @@ if [[ -z "$main_job" ]]; then
 elif [[ -z "$interactive" ]]; then
     echo "Failed to read the interactive flag"
     exit 1
-	
+    
 elif [[ -z "$scheduler" ]]; then
     echo "Failed to read the scheduler"
     exit 1
@@ -140,17 +140,17 @@ fi
 ############## Main
 chmod u+x "$main_job"
 if [[ "$scheduler" == "SGE" ]] || [[ "$scheduler" == "TORQUE" ]]; then
-	if [[ $interactive == 1 ]]; then
-		qrsh $jobs_ctrl_spec "$main_job"
-	else
-		"$main_job"
-	fi
+    if [[ $interactive == 1 ]]; then
+        qrsh $jobs_ctrl_spec "$main_job"
+    else
+        "$main_job"
+    fi
 elif [[ $scheduler == 'SLURM' ]]; then
-	if [[ $interactive == 1 ]]; then
-		srun $jobs_ctrl_spec "$main_job"
-	else
-		"$main_job"
-	fi
+    if [[ $interactive == 1 ]]; then
+        srun $jobs_ctrl_spec "$main_job"
+    else
+        "$main_job"
+    fi
 elif [[ $scheduler == 'NONE' ]]; then
-	"$main_job"
+    "$main_job"
 fi
