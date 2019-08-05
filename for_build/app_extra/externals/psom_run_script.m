@@ -392,7 +392,7 @@ switch opt.mode
                 if strcmp(getenv('PSOM_HACK_SLURM'),'1')
                     instr_qsub = sprintf('%s%s --job-name=%s %s %s','sbatch',qsub_logs,name_job,opt.qsub_options,['\"' script '\"']);
                 else
-					instr_qsub = sprintf('%s%s -N %s %s %s',sub,qsub_logs,name_job,opt.qsub_options,['\"' script '\"']);     
+                    instr_qsub = sprintf('%s%s -N %s %s %s',sub,qsub_logs,name_job,opt.qsub_options,['\"' script '\"']);     
                 end
         end
         if ~isempty(logs)
