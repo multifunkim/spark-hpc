@@ -70,14 +70,14 @@ fi
 
 ############## Checking for the application files
 this_loc="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
-check_existant_app_file "$this_loc"/app_files/spark_setup.py spark_setup.py
-check_existant_app_file "$this_loc"/app_files/frames/matlab.bash matlab.bash
-check_existant_app_file "$this_loc"/app_files/frames/sing.bash sing.bash
+check_existant_app_file "$this_loc"/spark_setup.py spark_setup.py
+check_existant_app_file "$this_loc"/frames/matlab.bash matlab.bash
+check_existant_app_file "$this_loc"/frames/sing.bash sing.bash
 
 
 
 ############## Checking the inputs and getting formatted info
-oargs="$("$this_loc"/app_files/spark_setup.py "$@")"
+oargs="$("$this_loc"/spark_setup.py "$@")"
 if [[ $? != 0 ]]; then
     echo -e "\n\n\n     ***** Something went wrong"
     echo -e "\n     Closing the program\n"
