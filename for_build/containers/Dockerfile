@@ -12,6 +12,7 @@ ENV SPARK_DIR=/usr/local/Multi_FunkIm/spark
 
 # Download and install SPARK
 RUN mkdir -p "$SPARK_DIR" && \
+    \
     echo 'Downloading SPARK library (latest)...' && \
     wget -q "https://api.github.com/repos/multifunkim/spark-matlab/releases/latest" -O /tmp/spark.latest && \
     zip_url="$(grep zipball_url /tmp/spark.latest | cut -d '"' -f 4)" && \
@@ -29,6 +30,5 @@ RUN mkdir -p "$SPARK_DIR" && \
     mkdir "$SPARK_DIR"/util/psom_gb && \
     wget -q -P "$SPARK_DIR"/util/psom_gb "https://raw.githubusercontent.com/multifunkim/spark-hpc/master/for_build/app_extra/util/psom_gb/spark_psom_gb.m" && \
     \
-    echo 'Configure SPARK...' && \
-    echo addpath\(genpath\(\'$SPARK_DIR\'\)\)\; >> /etc/octave.conf && \
-    chmod -R 755 $SPARK_DIR
+    echo 'Configuring SPARK...' && \
+    echo "addpath(genpath('$SPARK_DIR'));" >> /etc/octave.conf
