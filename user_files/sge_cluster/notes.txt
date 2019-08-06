@@ -1,0 +1,3 @@
+# Config heavily used and tested for the Concordia/PERFORM cluster
+#
+# - Interactive job feature not yet stable for the cluster
