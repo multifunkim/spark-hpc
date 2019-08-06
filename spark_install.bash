@@ -16,7 +16,12 @@ function install_spark_matlab() {
     \
     mkdir -p "$output_dir" && \
     app_dir="$output_dir"/spark-matlab && \
-    mkdir "$app_dir" && \
+    if [ -d "$app_dir" ]; then
+        echo ' - Found an existing MATLAB version of SPARK, deleting it...'
+        rm -rf "$app_dir"/*
+    else
+        mkdir "$app_dir"
+    fi && \
     tmp_dir="$(mktemp -d --tmpdir="$output_dir" tmp-XXXXX)"
     \
     echo ' - Downloading SPARK library (latest)...' && \
@@ -58,7 +63,12 @@ function install_spark_octave() {
     \
     mkdir -p "$output_dir" && \
     app_dir="$output_dir"/spark-octave && \
-    mkdir "$app_dir" && \
+    if [ -d "$app_dir" ]; then
+        echo ' - Found an existing GNU Octave version of SPARK, deleting it...'
+        rm -rf "$app_dir"/*
+    else
+        mkdir "$app_dir"
+    fi && \
     tmp_dir="$(mktemp -d --tmpdir="$output_dir" tmp-XXXXX)"
     \
     echo ' - Downloading SPARK library (latest)...' && \
@@ -99,7 +109,12 @@ function install_spark_sing() {
     \
     mkdir -p "$output_dir" && \
     app_dir="$output_dir"/spark-singularity && \
-    mkdir "$app_dir" && \
+    if [ -d "$app_dir" ]; then
+        echo ' - Found an existing Singularity version of SPARK, deleting it...'
+        rm -rf "$app_dir"/*
+    else
+        mkdir "$app_dir"
+    fi && \
     \
     pushd "$app_dir" >/dev/null 2>&1 && \
     singularity build --name spark-hpc.img docker://multifunkim/spark-hpc && \
