@@ -13,7 +13,7 @@
 # - Do not edit the last line
 
 
-DEFAULT_SPARK_EXE /NAS/home/ob_ali/programs/Multi_FunkIm/spark-singularity/spark-hpc.img
+DEFAULT_SPARK_EXE /NAS/home/ob_ali/programs/Multi_FunkIm/spark-singularity/spark-hpc.simg
 
 DEFAULT_CMD_TEMPLATE /NAS/home/ob_ali/programs/Multi_FunkIm/spark-hpc/user_files/sge_cluster/sing.template
 
