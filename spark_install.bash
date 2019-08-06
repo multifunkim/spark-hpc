@@ -117,7 +117,7 @@ function install_spark_sing() {
     fi && \
     \
     pushd "$app_dir" >/dev/null 2>&1 && \
-    singularity build --name spark-hpc.img docker://multifunkim/spark-hpc && \
+    singularity build spark-hpc.img docker://multifunkim/spark-hpc && \
     popd >/dev/null 2>&1 && \
     echo -e '\n - All done, check:\n'"$app_dir"
 }
