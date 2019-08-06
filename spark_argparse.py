@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # 
-# Checks the inputs for installing SPARK (meant to be used with the SPARK installer BASH script)
+# Checks the inputs for installing SPARK (meant to be used with the SPARK installer Bash script)
 # 
 # Last revision: August, 2019
 # Maintainer: Obai Bin Ka'b Ali @aliobaibk
@@ -74,11 +74,11 @@ def check_iargs_parser(iargs):
                         If not specified, then the current directory will be used.
 
                         Notes:
-                        - The directory 'Multi_FunkIm' will be created and all
-                        selected versions of SPARK will be installed in it.
-                        - If the directory 'Multi_FunkIm' already exists with
-                        existing version(s) of SPARK in it, then the existing
-                        version(s) might get deleted.
+                        - If the output directory is non-existent, then it will
+                        created.
+                        - If the output directory already exist with existing
+                        version(s) of SPARK in it, then the existing version(s) of
+                        SPARK might get deleted.
                          
                         (default: %(default)s)
                         (type: %(type)s)
@@ -133,7 +133,7 @@ def main(iargs):
 
     oargs = check_iargs(iargs)
 
-    print('"' + os.sep.join([oargs['output_dir'], 'Multi_FunkIm']) + '" "'  + oargs['versions'] + '"')
+    print('"' + oargs['output_dir'] + '" "'  + oargs['versions'] + '"')
 
     return sys_exit(0)
 

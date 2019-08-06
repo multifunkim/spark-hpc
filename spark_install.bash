@@ -10,12 +10,14 @@
 
 ############## Function to install the MATLAB version
 function install_spark_matlab() {
-    app_dir="$1"/Multi_FunkIm/spark-matlab && \
-    tmp_dir="$app_dir"/../tmp && \
+    output_dir="$1" && \
     \
-    echo -e '\n\n\nInstalling SPARK MATLAB...' && \
+    echo -e '\n\n\nInstalling SPARK for MATLAB...' && \
     \
-    mkdir -p "$app_dir" "$tmp_dir" && \
+    mkdir -p "$output_dir" && \
+    app_dir="$output_dir"/spark-matlab && \
+    mkdir "$app_dir" && \
+    tmp_dir="$(mktemp -d --tmpdir="$output_dir" tmp-XXXXX)"
     \
     echo ' - Downloading SPARK library (latest)...' && \
     wget -q "https://api.github.com/repos/multifunkim/spark-matlab/releases/latest" -O "$tmp_dir"/spark.latest && \
@@ -50,12 +52,14 @@ function install_spark_matlab() {
 
 ############## Function to install the GNU Octave version
 function install_spark_octave() {
-    app_dir="$1"/Multi_FunkIm/spark-octave && \
-    tmp_dir="$app_dir"/../tmp && \
+    output_dir="$1" && \
     \
-    echo -e '\n\n\nInstalling SPARK GNU Octave...' && \
+    echo -e '\n\n\nInstalling SPARK for GNU Octave...' && \
     \
-    mkdir -p "$app_dir" "$tmp_dir" && \
+    mkdir -p "$output_dir" && \
+    app_dir="$output_dir"/spark-octave && \
+    mkdir "$app_dir" && \
+    tmp_dir="$(mktemp -d --tmpdir="$output_dir" tmp-XXXXX)"
     \
     echo ' - Downloading SPARK library (latest)...' && \
     wget -q "https://api.github.com/repos/multifunkim/spark-matlab/releases/latest" -O "$tmp_dir"/spark.latest && \
@@ -89,11 +93,13 @@ function install_spark_octave() {
 
 ############## Function to install the Singularity version
 function install_spark_sing() {
-    app_dir="$1"/Multi_FunkIm/spark-singularity && \
+    output_dir="$1" && \
     \
-    echo -e '\n\n\nInstalling SPARK Singularity...' && \
+    echo -e '\n\n\nInstalling SPARK for Singularity...' && \
     \
-    mkdir -p "$app_dir" && \
+    mkdir -p "$output_dir" && \
+    app_dir="$output_dir"/spark-singularity && \
+    mkdir "$app_dir" && \
     \
     pushd "$app_dir" >/dev/null 2>&1 && \
     singularity build --name spark-hpc.img docker://multifunkim/spark-hpc && \
