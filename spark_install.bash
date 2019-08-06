@@ -22,7 +22,7 @@ function install_spark_matlab() {
     else
         mkdir "$app_dir"
     fi && \
-    tmp_dir="$(mktemp -d --tmpdir="$output_dir" tmp-XXXXX)"
+    tmp_dir="$(mktemp -d --tmpdir="$output_dir" tmp-XXXXX)" && \
     \
     echo ' - Downloading SPARK library (latest)...' && \
     wget -q "https://api.github.com/repos/multifunkim/spark-matlab/releases/latest" -O "$tmp_dir"/spark.latest && \
@@ -69,7 +69,7 @@ function install_spark_octave() {
     else
         mkdir "$app_dir"
     fi && \
-    tmp_dir="$(mktemp -d --tmpdir="$output_dir" tmp-XXXXX)"
+    tmp_dir="$(mktemp -d --tmpdir="$output_dir" tmp-XXXXX)" && \
     \
     echo ' - Downloading SPARK library (latest)...' && \
     wget -q "https://api.github.com/repos/multifunkim/spark-matlab/releases/latest" -O "$tmp_dir"/spark.latest && \
@@ -115,10 +115,18 @@ function install_spark_sing() {
     else
         mkdir "$app_dir"
     fi && \
+    tmp_dir="$(mktemp -d --tmpdir=/var/tmp tmp-XXXXX)" && \
     \
     pushd "$app_dir" >/dev/null 2>&1 && \
-    singularity build spark-hpc.img docker://multifunkim/spark-hpc && \
+    export SINGULARITY_CACHEDIR="$tmp_dir" && \
+    export SINGULARITY_LOCALCACHEDIR="$tmp_dir" && \
+    export SINGULARITY_TMPDIR="$tmp_dir" && \
+    export SINGULARITY_PULLFOLDER="$tmp_dir" && \
+    singularity build spark-hpc.simg docker://multifunkim/spark-hpc && \
     popd >/dev/null 2>&1 && \
+    \
+    rm -rf "$tmp_dir" && \
+    \
     echo -e '\n - All done, check:\n'"$app_dir"
 }
 
