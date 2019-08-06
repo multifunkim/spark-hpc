@@ -1,0 +1,12 @@
+# Command template for SPARK+SINGULARITY
+# 
+# Configure this file according to your system,
+# you just need to specify how you normally execute Singularity
+#
+# WARNINGS:
+# - Use Bash syntax
+# - Do not add a new line after the last command ('singularity')
+# - Do not chain any command to the last one ('singularity')
+
+module load singularity/2.6
+singularity

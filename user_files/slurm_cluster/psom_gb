@@ -1,0 +1,5 @@
+% WARNINGS:
+% - Use GNU Octave/MATLAB syntax
+
+% Stable config if you don't need the display of the pipeline manager:
+gb_psom_mode_deamon = 'session';

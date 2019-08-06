@@ -1,0 +1,14 @@
+# Command template for SPARK+MATLAB
+# 
+# Configure this file according to your system,
+# you just need to specify how you normally execute MATLAB
+#
+# WARNINGS:
+# - Use Bash syntax
+# - Do not add a new line after the last command ('matlab')
+# - Do not chain any command to the last one ('matlab')
+# - Make sure you have MINC toolkit
+
+module load minc-toolkit/1.9.16
+module load matlab/2019a
+matlab

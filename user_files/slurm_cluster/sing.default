@@ -1,0 +1,31 @@
+# Default configurations
+#
+# Using this default configuration file helps to keep the main scripts light
+# By setting any option in this file, no need to specify the same option in command line
+#
+#
+# WARNINGS:
+# - For an exhaustive list of accepted keywords consult the program help message with:
+#     ./spark_run.bash --help
+# - No characters should precede any keyword for it to be valid
+# - At least one whitespace should be placed after the different keywords
+# - Better to always use absolute paths
+# - Do not edit the last line
+
+
+DEFAULT_SPARK_EXE /lustre04/scratch/aliobai/programs/Multi_FunkIm/spark-singularity/spark-hpc.simg
+
+DEFAULT_CMD_TEMPLATE /lustre04/scratch/aliobai/programs/Multi_FunkIm/spark-hpc/user_files/slurm_cluster/sing.template
+
+DEFAULT_SCHEDULER SLURM
+
+DEFAULT_INTERACTIVE 
+
+DEFAULT_JOBS_CTRL_SPEC -A def-someuser -t 24:00:00 --mem=4G
+
+DEFAULT_JOBS_SPEC -A def-someuser -t 24:00:00 --mem-per-cpu=4G
+
+# DEFAULT_PSOM_GB /lustre04/scratch/aliobai/programs/Multi_FunkIm/spark-hpc/user_files/slurm_cluster/psom_gb
+
+
+# END - THIS SHOULD BE THE LAST LINE, DO NOT EDIT
