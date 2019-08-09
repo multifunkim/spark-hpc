@@ -45,6 +45,7 @@ def check_iargs_parser(iargs):
     """
     
     parser = ArgumentParser(
+        prog='spark_install.bash (or spark_argparse.py)',
         description=dedent('''\
         SParsity-based Analysis of Reliable K-hubness (SPARK)
         ____________________________________________________________________________________

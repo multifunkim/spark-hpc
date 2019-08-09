@@ -500,6 +500,7 @@ def check_iargs_parser(iargs):
     """
     
     parser = ArgumentParser(
+        prog='spark_run.bash (or spark_setup.py)',
         description=dedent('''\
         SParsity-based Analysis of Reliable K-hubness (SPARK) for brain fMRI functional
         connectivity
