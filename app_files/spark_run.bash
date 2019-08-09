@@ -17,7 +17,7 @@ function help_requested() {
 
 
 ############## Function to check if an application file is present
-function check_existant_app_file() {
+function check_existent_app_file() {
     filepath="$1"
     filename="$2"
 
@@ -70,9 +70,9 @@ fi
 
 ############## Checking for the application files
 this_loc="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
-check_existant_app_file "$this_loc"/spark_setup.py spark_setup.py
-check_existant_app_file "$this_loc"/frames/matlab.bash matlab.bash
-check_existant_app_file "$this_loc"/frames/sing.bash sing.bash
+check_existent_app_file "$this_loc"/spark_setup.py spark_setup.py
+check_existent_app_file "$this_loc"/frames/matlab.bash matlab.bash
+check_existent_app_file "$this_loc"/frames/sing.bash sing.bash
 
 
 
