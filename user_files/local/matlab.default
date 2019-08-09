@@ -1,0 +1,31 @@
+# Default configurations
+#
+# Using this default configuration file helps to keep the main scripts light
+# By setting any option in this file, no need to specify the same option in command line
+#
+#
+# WARNINGS:
+# - For an exhaustive list of accepted keywords consult the program help message with:
+#     ./spark_run.bash --help
+# - No characters should precede any keyword for it to be valid
+# - At least one whitespace should be placed after the different keywords
+# - Better to always use absolute paths
+# - Do not edit the last line
+
+
+DEFAULT_SPARK_EXE /NAS/home/ob_ali/programs/Multi_FunkIm/spark-matlab
+
+DEFAULT_CMD_TEMPLATE /NAS/home/ob_ali/programs/Multi_FunkIm/spark-hpc/user_files/sge_cluster/matlab.template
+
+DEFAULT_SCHEDULER NONE
+
+# DEFAULT_INTERACTIVE 
+
+# DEFAULT_JOBS_CTRL_SPEC -q matlab.q -l h_rt=86400 -N psomCtrl -l mem_free=4G
+
+# DEFAULT_JOBS_SPEC -q matlab.q -l h_rt=86400 -l mem_free=4G
+
+# DEFAULT_PSOM_GB /NAS/home/ob_ali/programs/Multi_FunkIm/spark-hpc/user_files/sge_cluster/psom_gb
+
+
+# END - THIS SHOULD BE THE LAST LINE, DO NOT EDIT

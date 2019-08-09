@@ -1,0 +1,1 @@
+# Config heavily used and tested for workstations (at Concordia)
